@@ -4,6 +4,12 @@ import Starred from './pages/Starred';
 import Show from './pages/Show';
 import MainLayout from './components/MainLayout';
 
+//components life cycle
+//mounts
+//rendered
+//unmount
+
+
 function App() {
   return (
     <BrowserRouter>
