@@ -11,7 +11,7 @@ const summaryStripped=summary?summary.split(" ").slice(0,10).join(' ').replace(/
       <h1>{name}</h1>
       <p>{summaryStripped}</p>
       <div>
-        <Link to="/">Read more</Link>
+        <Link to={`/show/${id}`}>Read more</Link>
         <button type="button">Start me</button>
       </div>
     </div>
