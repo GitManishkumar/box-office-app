@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useSearchStr } from '../lib/useSearchStr';
+import CustomRadio from './CustomRadio';
 
-const SearchForm = ({onSearch}) => {
+const SearchForm = ({ onSearch }) => {
   const [searchStr, setSearchStr] = useSearchStr();
   const [searchOption, setSearchOption] = useState('shows');
 
-//components life cycle
-//1.mounts
-//2.rendered
-//2.5 logic before next render 
-//3.unmount
+  //components life cycle
+  //1.mounts
+  //2.rendered
+  //2.5 logic before next render
+  //3.unmount
 
-//useeffect run always once no matter
+  //useeffect run always once no matter
 
   const onSearchInputChange = ev => {
     setSearchStr(ev.target.value);
@@ -21,45 +22,37 @@ const SearchForm = ({onSearch}) => {
     setSearchOption(ev.target.value);
   };
 
-  const onSubmit=(ev)=>{
-    ev.preventDefault()
-    const options={
-      q:searchStr,
-      searchOption
-    }
-    onSearch(options)
-  }
+  const onSubmit = ev => {
+    ev.preventDefault();
+    const options = {
+      q: searchStr,
+      searchOption,
+    };
+    onSearch(options);
+  };
 
   return (
     <form onSubmit={onSubmit}>
       <input type="text" value={searchStr} onChange={onSearchInputChange} />
 
-      <label>
-        Shows
-        <input
-          type="radio"
-          name="search-option"
-          value="shows"
-          checked={searchOption === 'shows'}
-          onChange={onRadioChange}
-        ></input>
-      </label>
+      <CustomRadio
+        label="Shows"
+        name="search-option"
+        value="shows"
+        checked={searchOption === 'shows'}
+        onChange={onRadioChange}
+      />
 
-      <label>
-        Actors
-        <input
-          type="radio"
-          name="search-option"
-          value="actors"
-          checked={searchOption === 'actors'}
-          onChange={onRadioChange}
-        ></input>
-      </label>
+      <CustomRadio
+        label="Actors"
+        name="search-option"
+        value="actors"
+        checked={searchOption === 'actors'}
+        onChange={onRadioChange}
+      />
 
       <button type="submit">Search</button>
     </form>
   );
-
 };
 export default SearchForm;
-
