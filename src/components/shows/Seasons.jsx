@@ -22,7 +22,7 @@ const Seasons = ({ seasons }) => {
             <div className="right">
               Aired:{' '} 
               <strong>
-              {season.premierDate} - {season.endDate}
+              {season.premiereDate} - {season.endDate}
               </strong>
             </div>
           </div>
